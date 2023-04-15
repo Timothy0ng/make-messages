@@ -8,9 +8,13 @@ const rl = readline.createInterface({
 /**
  * Truth or Dare
  */
-rl.question('Truth or dare ', function (tod_type) {
-  tod_type;
-  rl.close();
+rl.question('truth/dare?', function (tod_type) {
+  if (['truth', 'dare'].includes(tod_type)) {
+    console.log(tod_type);
+    rl.close();
+  } else {
+    rl.close();
+  }
 });
 
 rl.on('close', function () {
