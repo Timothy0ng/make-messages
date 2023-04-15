@@ -18,9 +18,8 @@ rl.question('truth/dare?', function (tod_type) {
       url: action_url,
       responseType: 'json',
     }).then(function (response) {
-      console.log(tod_type);
-      response;
-
+      const { question } = response.data;
+      console.log(question);
       rl.close();
     });
   } else {
