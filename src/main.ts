@@ -1,5 +1,19 @@
+import readline from 'readline';
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
 /**
  * Truth or Dare
  */
-const tod_type = prompt('Truth or Dare?');
-tod_type;
+rl.question('Truth or dare ', function (tod_type) {
+  tod_type;
+  rl.close();
+});
+
+rl.on('close', function () {
+  console.log('\n L');
+  process.exit(0);
+});
