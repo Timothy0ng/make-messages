@@ -1,3 +1,4 @@
+import axios from 'axios';
 import readline from 'readline';
 
 const rl = readline.createInterface({
@@ -10,8 +11,18 @@ const rl = readline.createInterface({
  */
 rl.question('truth/dare?', function (tod_type) {
   if (['truth', 'dare'].includes(tod_type)) {
-    console.log(tod_type);
-    rl.close();
+    const action_url = `https://api.truthordarebot.xyz/api/${tod_type}`;
+
+    axios({
+      method: 'get',
+      url: action_url,
+      responseType: 'json',
+    }).then(function (response) {
+      console.log(tod_type);
+      response;
+
+      rl.close();
+    });
   } else {
     rl.close();
   }
